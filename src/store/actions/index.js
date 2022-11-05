@@ -1,9 +1,28 @@
 import * as api from '../../api';
 import{
-    GET_POSTS
+    GET_POSTS,
+    ADD_NEWSLETTER,
+    CLEAR_NEWSLETTER
 } from '../types'
 
-export const getPosts = (page,order,limit)=>({
+/**======================
+ **    Post
+ *========================**/
+export const getPosts = (homePosts,page,order,limit)=>({
     type: GET_POSTS,
-    payload: api.getPosts(page,order,limit)
+    payload: api.getPosts(homePosts,page,order,limit)
+})
+
+/**======================
+ **      USER
+ *========================**/
+export const addNewsletter = (data)=>({
+    type:ADD_NEWSLETTER,
+    payload: api.addNewsletter(data)
+})
+
+
+export const clearNewsletter = ()=>({
+    type:CLEAR_NEWSLETTER,
+    payload:{}
 })
